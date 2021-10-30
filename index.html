@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- for google font: -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Accordion Component</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: #343a40;
+        line-height: 1;
+
+        /* body te ei line-height: 1 er maddome sob line-height ke remove kora hoise by default jei line-height chilo!  */
+      }
+
+      img {
+        height: 200px;
+        border-radius: 12px;
+        /* image ta ke boro korlam transform er maddome jate image ti carousel er upore thake: */
+        transform: scale(1.5);
+
+        box-shadow: 0px 5px 24px rgba(8, 127, 91, 0.6),
+          0px -5px 24px rgba(8, 127, 91, 0.6);
+      }
+
+      .coursel {
+        background-color: #087f5b;
+        color: #fff;
+
+        /* padding-left:86px deoaar means holo je image ti scale korar por eti coursel er bahire chole gesilo tai couresel ke  padding left e diye abar vitore dukiye diyechi! */
+
+        /* padding: 32px;
+        padding-left: 86px;
+        padding-right: 48px; */
+
+        padding: 32px 48px 32px 86px;
+
+        width: 800px;
+        margin: 100px auto;
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        gap: 86px;
+
+        position: relative;
+      }
+
+      .testimonial-text {
+        font-weight: 500;
+        line-height: 1.5;
+        font-size: 18px;
+        color: #e6fcf5;
+        margin-bottom: 32px;
+      }
+
+      .testimonial-author {
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #c3fae8;
+      }
+
+      .testimonial-job {
+        color: #c3fae8;
+      }
+
+      .btn {
+        border: none;
+
+        /* border:none dile button gula remove hoye jabe! tai ei button ke visible korar jonne abar height and width set kore dite hobe:  */
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+
+        position: absolute;
+
+        /* ekhon ei .btn-icon ke jate button er moddeh jate center e ante pari tar jonne flex use korbo btn e ! karon btn ti holo .btn-icon er parent class:   */
+
+        display: flex;
+        /* justify content:center er means hocceh je ei btn er moddeh shudu ekti .btn-icon kei ami chaitesi x-axis borabor center e nibo tai justify-items use nah kore justify-content use korsi: */
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+      }
+
+      .btn-icon {
+        stroke: #087f5b;
+        height: 24px;
+        width: 24px;
+      }
+
+      .btn--left {
+        left: 0;
+        top: 50%;
+
+        /* eikhane top 50% dile right button ti tar relative container mane e eikhane carousel er moddeh 50% niche nambe er fole eti top carousel 50% niche nambe and ei left button ti center e thakbe nah ar ei center ei thakar jonne transform:translate(0,-50%) deoaa lagbe:
+         ei 0 holo x axis and -50% holo y-axis;
+        ;*/
+
+        transform: translate(-10px, -50%);
+      }
+
+      .btn--right {
+        right: 0;
+        top: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .dots {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 32px);
+
+        display: flex;
+        gap: 12px;
+      }
+
+      .dot {
+        background-color: #fff;
+        border: 2px solid #087f5b;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .green {
+        background-color: #087f5b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="coursel">
+      <img src="tr_fb.jpg" alt="tanvir_gym" />
+
+      <blockquote class="testimonial">
+        <p class="testimonial-text">
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam,
+          atque at? Dolorum accusantium fuga placeat."
+        </p>
+        <p class="testimonial-author">Tanvir Rifat</p>
+        <p class="testimonial-job">
+          CEO of RGR PARCEL & VERY PASSIONATE LEARNER
+        </p>
+      </blockquote>
+
+      <!-- 2 ti left and right er jei button gula ache seigular jonne: -->
+
+      <button class="btn btn--left">
+        <svg
+          class="btn-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
+        </svg>
+      </button>
+
+      <button class="btn btn--right">
+        <svg
+          class="btn-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </button>
+
+      <div class="dots">
+        <div class="dot green">&nbsp;</div>
+        <div class="dot">&nbsp;</div>
+        <div class="dot">&nbsp;</div>
+        <div class="dot">&nbsp;</div>
+      </div>
+    </div>
+  </body>
+</html>
